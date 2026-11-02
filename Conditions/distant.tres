@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3 uid="uid://cbp3b6u4xmcw"]
+
+[ext_resource type="Script" uid="uid://kb6pmcko2lgq" path="res://SoundEngine/sfx_condition.gd" id="1_nj4rl"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_0uq7i"]
+cutoff_hz = 1800.0
+resonance = 0.2
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_8mj26"]
+wet = 0.6
+
+[resource]
+script = ExtResource("1_nj4rl")
+effects = Array[AudioEffect]([SubResource("AudioEffectLowPassFilter_0uq7i"), SubResource("AudioEffectReverb_8mj26")])
+volume_db = 9.5
+pitch_scale = 0.25

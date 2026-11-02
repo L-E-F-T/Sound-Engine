@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_k3emn"]
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_wvx7l"]
+wet = 0.4
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_gkwmt"]
+room_size = 0.5
+damping = 0.2
+wet = 0.45
+
+[resource]
+script = ExtResource("1_k3emn")
+effects = Array[AudioEffect]([SubResource("AudioEffectChorus_wvx7l"), SubResource("AudioEffectReverb_gkwmt")])
+patch_overrides = {
+"delay_feedback": 0.45,
+"delay_mix": 0.35,
+"delay_time": 0.12,
+"fm_decay": 0.2,
+"fm_depth": 3.0,
+"fm_ratio": 3.01
+}

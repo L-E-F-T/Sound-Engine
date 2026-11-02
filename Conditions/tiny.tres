@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_2fih6"]
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_b203a"]
+cutoff_hz = 600.0
+resonance = 0.2
+
+[resource]
+script = ExtResource("1_2fih6")
+effects = Array[AudioEffect]([SubResource("AudioEffectHighPassFilter_b203a")])
+volume_db = -6.0
+pitch_scale = 1.6

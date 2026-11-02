@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_tyva0"]
+
+[sub_resource type="AudioEffectBandPassFilter" id="AudioEffectBandPassFilter_noo6f"]
+cutoff_hz = 1500.0
+resonance = 0.9
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_f418n"]
+mode = 3
+drive = 0.45
+post_gain = -3.0
+
+[resource]
+script = ExtResource("1_tyva0")
+effects = Array[AudioEffect]([SubResource("AudioEffectBandPassFilter_noo6f"), SubResource("AudioEffectDistortion_f418n")])
+volume_db = -3.0

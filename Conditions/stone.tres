@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_g78l0"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_c7py6"]
+cutoff_hz = 1400.0
+resonance = 0.3
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_nbdim"]
+mode = 3
+drive = 0.3
+post_gain = -3.0
+
+[resource]
+script = ExtResource("1_g78l0")
+effects = Array[AudioEffect]([SubResource("AudioEffectLowPassFilter_c7py6"), SubResource("AudioEffectDistortion_nbdim")])
+patch_overrides = {
+"cutoff": 1300.0,
+"cutoff_sweep_octaves": -2.5,
+"drive": 0.5,
+"filter_mode": 1
+}

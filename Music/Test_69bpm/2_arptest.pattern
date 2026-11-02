@@ -1,0 +1,8 @@
+bars = 4
+steps_per_beat = 4
+
+[track]
+patch = p_inst_pluck
+pattern = x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.
+notes = 0 2 5 7 0 0 5 7 0 0 5 7 0 0 5 7 0 0 5 7 0 0 5 7 0 2 0 7 0 2 0 7 
+gain_db = -4

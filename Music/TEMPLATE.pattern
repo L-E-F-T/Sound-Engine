@@ -1,0 +1,60 @@
+# TEMPLATE.pattern: every field a pattern file can use, with its default.
+# Copy this into a song folder as N_name.pattern, where N is the level it joins at.
+# To make it stop again later, add _stopM to the name: 3_arp_stop5.pattern plays at levels
+# 3 and 4 and is silent from 5 on. Anything after a # that starts a line or follows a space
+# is a comment (so F#4 is still a note). Blank lines are ignored. Keys are case-insensitive.
+#
+# This file sits in Music/ itself, where it is ignored; only files inside song folders play.
+
+# ---------------------------------------------------------------- Song-level keys
+# (above the first [track])
+
+bars = 2                 # Loop length in whole bars, 1 to 64. Equal to, or a divisor of, the
+                         # audio parts' length so it lines up with them (2, 4 or 8 is typical).
+steps_per_beat = 4       # Grid: 4 = sixteenths (16 steps per 4/4 bar), 2 = eighths,
+                         # 3 = triplets, 8 = thirty-seconds. 1 to 16.
+root = D4                # What the number 0 means in every track: a note name (A4 = 440 Hz) or
+                         # a frequency. With root = D4, "7" is A4 on every instrument. Leave it
+                         # out and numbers count from each patch's own tuning instead.
+transpose = 0            # Semitones added to every track. Shift the whole pattern to fit a key.
+
+# ---------------------------------------------------------------- Tracks
+# As many [track] sections as you like, all mixed into the one loop.
+
+[track]
+patch = p_inst_pluck     # Any sound name from sfx_palette.gd.
+                         # p_inst_kick / hat / bass / pluck / pad are tuned for music, but any
+                         # sound works: p_glass_hit as a bell, p_stone_hit as a drum.
+#
+# Steps, readable form: one token per step, separated by spaces. | is a bar line (ignored).
+#   a number  = hit at that many semitones from root        7   -5   12
+#   a note    = hit at that note                            D4  F#4  Bb3
+#   x         = hit on the next entry of "notes" below      (X louder, o softer)
+#   .         = rest                                        (- and _ also rest)
+#   add !     = accent (full level), add ~ = soft           7!  D5~  x!
+# Several pattern lines join up, so write one bar per line:
+pattern = 0 . 7 . 12! . 7 . | 3 . 7 . 12! . 10 .
+pattern = 0 . 7 . 12! . 7 . | 5 . 7 . 12! . 7~ .
+#
+# Steps, compact form: one character per step, pitch from "notes" in turn:
+#   pattern = x.x.X.x.|x.x.X.x.
+notes = 0 3 7 12         # Used by x X o steps: pitch for each hit in turn, cycling. Numbers
+                         # (from root) or note names, mixed freely.
+gain_db = -4             # Track level. 0 is full; -6 about half as loud.
+transpose = 0            # Semitones added to this track only.
+# condition = metal      # Optional: render through a condition's synth knob overrides
+                         # (metal, glass, haunted ...). Bus effects do not apply to baked loops.
+
+[track]
+patch = p_inst_kick
+pattern = X . . . x . . . X . . . x . . . | X . . . x . . . X . . x x . . .
+
+[track]
+patch = p_inst_hat
+pattern = . . o . . . o . . . o . . . o . | . . o . . . o . . . o . . o o o
+gain_db = -8
+
+[track]
+patch = p_inst_bass
+pattern = D2 . . . . . . . A2 . . . . . . . | F2 . . . . . . . A2 . . . G2 . . .
+gain_db = -3

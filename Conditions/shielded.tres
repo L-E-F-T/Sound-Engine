@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_h1m57"]
+
+[sub_resource type="AudioEffectBandPassFilter" id="AudioEffectBandPassFilter_1t7hp"]
+cutoff_hz = 1200.0
+resonance = 0.8
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_k1hs3"]
+rate_hz = 2.5
+
+[resource]
+script = ExtResource("1_h1m57")
+effects = Array[AudioEffect]([SubResource("AudioEffectBandPassFilter_1t7hp"), SubResource("AudioEffectPhaser_k1hs3")])
+volume_db = -3.0

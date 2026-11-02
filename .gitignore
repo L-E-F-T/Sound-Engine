@@ -1,0 +1,6 @@
+# Music tracks are local test audio, kept out of git (one WAV is over GitHub's
+# 100 MB file limit). The .pattern files and READMEs in Music/ are tracked.
+Music/**/*.wav
+Music/**/*.mp3
+Music/**/*.ogg
+Music/**/*.import

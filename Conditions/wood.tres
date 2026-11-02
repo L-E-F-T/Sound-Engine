@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_3r5qi"]
+
+[sub_resource type="AudioEffectBandPassFilter" id="AudioEffectBandPassFilter_5veai"]
+cutoff_hz = 900.0
+resonance = 0.6
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_tm1nl"]
+mode = 3
+drive = 0.15
+post_gain = -3.0
+
+[resource]
+script = ExtResource("1_3r5qi")
+effects = Array[AudioEffect]([SubResource("AudioEffectBandPassFilter_5veai"), SubResource("AudioEffectDistortion_tm1nl")])
+patch_overrides = {
+"cutoff": 800.0,
+"filter_mode": 3,
+"resonance": 0.55,
+"sample_hold": 3
+}

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SfxCondition" format=3]
+
+[ext_resource type="Script" path="res://SoundEngine/sfx_condition.gd" id="1_ku7hv"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_yoejn"]
+cutoff_hz = 2500.0
+resonance = 0.3
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_rqgno"]
+mode = 3
+drive = 0.2
+post_gain = -3.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_tlp41"]
+room_size = 0.6
+damping = 0.4
+wet = 0.4
+
+[resource]
+script = ExtResource("1_ku7hv")
+effects = Array[AudioEffect]([SubResource("AudioEffectLowPassFilter_yoejn"), SubResource("AudioEffectDistortion_rqgno"), SubResource("AudioEffectReverb_tlp41")])
+volume_db = 2.0
+pitch_scale = 0.7
